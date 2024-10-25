@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from pandas_datareader import data as pdr
+#from pandas_datareader import data as pdr
 import plotly.express as px
 import numpy as np
 from PIL import Image
@@ -41,7 +41,8 @@ def read_data():
 def company_price(df_sp,option_company):
     if option_company != None:
         ticker_company = df_sp.loc[df_sp['name'] == option_company,'ticker'].values[0]
-        data_price = pdr.get_data_yahoo(ticker_company, start="2011-12-31", end="2021-12-31")['Adj Close']
+        #data_price = pdr.get_data_yahoo(ticker_company, start="2011-12-31", end="2021-12-31")['Adj Close']
+        return None
         data_price = data_price.reset_index(drop = False)
         data_price.columns = ['ds','y']
         return data_price
@@ -119,7 +120,7 @@ if __name__ == "__main__":
     st.sidebar.title('Search criteria')
 
     image = Image.open('final_version/project/stock.jpeg')
-    yf.pdr_override()
+    #yf.pdr_override()
     _, col_image_2,_ = st.columns([1,3,1])
     with col_image_2:
         st.image(image, caption='@austindistel')
