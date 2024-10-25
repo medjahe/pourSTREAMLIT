@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-#from pandas_datareader import data as pdr
+from pandas_datareader import data as pdr
 import plotly.express as px
 import numpy as np
 from PIL import Image
