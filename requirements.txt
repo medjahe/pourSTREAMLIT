@@ -1,16 +1,7 @@
 streamlit
 pandas
 numpy
-seaborn
-matplotlib
-scikit-learn
-fuzzywuzzy
-Pillow
-streamlit
-pandas
-numpy
 scikit-learn
 yfinance
 plotly
 altair
-pandas_datareader
