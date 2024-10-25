@@ -3,6 +3,6 @@ numpy
 scikit-learn
 yfinance==0.1.74
 streamlit==1.10.0
-plotly==5.10.0
+plotly
 altair==4.2.0
 pandas_datareader
