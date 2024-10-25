@@ -35,10 +35,12 @@ def read_data():
     df_sp = pd.read_csv(path_data)
     return df_sp
 
+
 def company_price(df_sp, option_company):
     if option_company is not None:
         ticker_company = df_sp.loc[df_sp['name'] == option_company, 'ticker'].values[0]
-        data_price = yf.download(ticker_company, start="2011-12-31", end="2021-12-31")['Adj Close']
+        #data_price = yf.download(ticker_company, start="2011-12-31", end="2021-12-31")['Adj Close']
+        data_price = yf.download(ticker_company)['Adj Close']
         data_price = data_price.reset_index(drop=False)
         data_price.columns = ['ds', 'y']
         return data_price
@@ -159,14 +161,21 @@ if __name__ == "__main__":
         st.metric(label="Stock price 31 dec. 2021", value=str(np.around(stock_price_2022, 2)), delta=str(performance) + ' %')
         st.write('*Compared to 31 dec. 2011*')
 
-    with col_prediction_2:
-        with st.expander("Prediction explanation", expanded=True):
-            st.write("""
-                The graph above shows the evolution of the selected stock price between 31st dec. 2011 and 31 dec. 2021.
-                The indicator on the left is the stock price value in 31st dec. 2021 for the selected company and its evolution between 31st dec. 2011 and 31st dec. 2021.
-
-                ⚠️⚠️ Theses value are computed based on what the Yahoo Finance API returns !
-            """)
+   
+    with col_prediction_1:
+        #st.metric(label="Stock price 31 dec. 2021", value=str(np.around(stock_price_2022,2)), delta=str(performance)+ ' %')
+        #st.write('*Compared to 31 dec. 2011*')
+        
+        debut = str(data_price['ds'].values[0]).split("T")[0]
+        fin =  str(data_price['ds'].values[-1]).split("T")[0]
+        st.text("debut="+debut)
+        st.text("fin="+fin)
+        
+        
+        #st.metric(label="Stock price 31 dec. 2021", value=str(np.around(stock_price_2022,2)), delta=str(performance)+ ' %')
+        #st.write('*Compared to 31 dec. 2011*')
+        st.metric(label="Stock price "+fin, value=str(np.around(stock_price_2022,2)), delta=str(performance)+ ' %')
+        st.write('*Compared to *'+debut)
 
     ######################################## END #######################################################################
     ####################################################################################################################
