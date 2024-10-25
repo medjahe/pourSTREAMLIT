@@ -33,7 +33,7 @@ def parameter(df_sp,sector_default_val,cap_default_val):
 
 @st.cache
 def read_data():
-    path_data = 'final_version/project/s&p500.csv' 
+    path_data = 's&p500.csv' 
     df_sp = pd.read_csv(path_data)
     return df_sp
 
