@@ -1,7 +1,7 @@
 pandas
 numpy
 scikit-learn
-yfinance==0.1.74
+yfinance
 streamlit
 plotly
 altair
