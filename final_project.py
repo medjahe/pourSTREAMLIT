@@ -157,10 +157,6 @@ if __name__ == "__main__":
     stock_price_2022, performance = metrics(data_price)
 
     col_prediction_1, col_prediction_2 = st.columns([1, 2])
-    with col_prediction_1:
-        st.metric(label="Stock price 31 dec. 2021", value=str(np.around(stock_price_2022, 2)), delta=str(performance) + ' %')
-        st.write('*Compared to 31 dec. 2011*')
-
    
     with col_prediction_1:
         #st.metric(label="Stock price 31 dec. 2021", value=str(np.around(stock_price_2022,2)), delta=str(performance)+ ' %')
