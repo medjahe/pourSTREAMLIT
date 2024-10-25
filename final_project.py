@@ -172,6 +172,13 @@ if __name__ == "__main__":
         #st.write('*Compared to 31 dec. 2011*')
         st.metric(label="Stock price "+fin, value=str(np.around(stock_price_2022,2)), delta=str(performance)+ ' %')
         st.write('*Compared to *'+debut)
-
+    with col_prediction_2:
+        with st.expander("Prediction explanation",expanded=True):
+            st.write(f"""
+                The graph above shows the evolution of the selected stock price between {debut} and {fin}.
+                The indicator on the left is the stock price value in 31st dec. 2021 for the selected company and its evolution between 31st dec. 2011 and 31st dec. 2021.
+                
+                ⚠️⚠️ Theses value are computed based on what the Yahoo Finance API returns !
+            """)
     ######################################## END #######################################################################
     ####################################################################################################################
