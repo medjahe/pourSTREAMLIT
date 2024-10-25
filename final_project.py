@@ -176,7 +176,7 @@ if __name__ == "__main__":
         with st.expander("Prediction explanation",expanded=True):
             st.write(f"""
                 The graph above shows the evolution of the selected stock price between {debut} and {fin}.
-                The indicator on the left is the stock price value in 31st dec. 2021 for the selected company and its evolution between 31st dec. 2011 and 31st dec. 2021.
+                The indicator on the left is the stock price value in {fin} for the selected company and its evolution between {debut} and {fin}.
                 
                 ⚠️⚠️ Theses value are computed based on what the Yahoo Finance API returns !
             """)
